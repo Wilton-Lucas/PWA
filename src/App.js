@@ -39,6 +39,7 @@ class App extends Component {
         this.mudarMesDecremento = this.mudarMesDecremento.bind(this);
         this.mudarMesIncremento = this.mudarMesIncremento.bind(this);
         this.adicionarFinanca = this.adicionarFinanca.bind(this);
+        this.remover = this.remover.bind(this);
         this.atualizarFinancasAPI = this.atualizarFinancasAPI.bind(this);
 
 
@@ -64,7 +65,7 @@ class App extends Component {
 
     itemTemplate(data) {        
         return (
-            <Template data={data} />
+            <Template data={data} bind={this} />
         );
     };
 
@@ -107,6 +108,15 @@ class App extends Component {
       fnovo.push(novo);
       console.log(fnovo);
       this.setState({financas: fnovo});
+    }
+
+    remover(value){
+
+        const fnovo = this.state.financas;
+        //fnovo.pop();
+        fnovo.splice(fnovo.indexOf(value),1);
+        console.log(fnovo);
+        this.setState({financas: fnovo});
     }
 
     render() {

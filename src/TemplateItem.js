@@ -25,6 +25,7 @@ class Template extends Component {
                 <div className="nome-item">{this.props.data.descricao}</div>
                 <div className="dt-vencimento-item">{this.props.data.dataVencimentoFinal}</div>
                 <div className="valor-item">{this.props.data.valor}</div>
+                <button onClick={this.props.bind.remover}/>
             </div>
         
         );
