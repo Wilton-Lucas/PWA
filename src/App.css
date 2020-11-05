@@ -126,11 +126,22 @@
   color: red;
 }
 
-.App-verde {
-  background-color: #05f641;
+.item-verde {
+  background-color: #dcebe3;
   padding-top: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(4px + 2vmin);
+  color: white;
+}
+
+.item-vermelho {
+  background-color: #e4c2b8;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(4px + 2vmin);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import  api from  './API';
+import Template from './TemplateItem';
 
 // importação primereact
 import 'primereact/resources/themes/saga-blue/theme.css';
@@ -82,15 +83,9 @@ class App extends Component {
 
     }
 
-    itemTemplate(data) {
-        console.log('entrei kkkk')
+    itemTemplate(data) {        
         return (
-            <div className="item">
-                {console.log(data)}
-                <div className="nome-item">{data.descricao}</div>
-                <div className="dt-vencimento">{data.dataVencimentoFinal}</div>
-                <div className="valor">{data.valor}</div>
-            </div>
+            <Template data={data} />
         );
     };
 
