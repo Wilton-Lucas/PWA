@@ -114,7 +114,12 @@ class App extends Component {
 
         const fnovo = this.state.financas;
         //fnovo.pop();
-        fnovo.splice(fnovo.indexOf(value),1);
+         fnovo.splice(fnovo.indexOf(value),1);
+        api.delete(value.id).then((respota)=>{
+            console.log(respota);
+        }).catch((resposta)=>{
+            console.log(resposta)
+        })
         console.log(fnovo);
         this.setState({financas: fnovo});
     }
