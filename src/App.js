@@ -35,7 +35,8 @@ class App extends Component {
                     {
                       "id": "1",
                       "descricao": "conta de luz",
-                      "dataVencimento": "20/10/2020",
+                      "dataVencimentoInicial": "20/10/2020",
+                      "dataVencimentoFinal": "20/10/2020",
                       "tipoReceita": 1,
                       "valor": "19.85",
                       "parcelasQtd": 1
@@ -65,7 +66,7 @@ class App extends Component {
         this.itemTemplate = this.itemTemplate.bind(this);
         this.mudarMesDecremento = this.mudarMesDecremento.bind(this);
         this.mudarMesIncremento = this.mudarMesIncremento.bind(this);
-        
+        this.adicionarFinanca = this.adicionarFinanca.bind(this);
 
         console.log('finanças antes =' + this.itemTemplate);
 
@@ -107,6 +108,23 @@ class App extends Component {
         }
     };
 
+    adicionarFinanca(){
+      
+      const novo =  {
+                      "id": "15",
+                      "descricao": "conta de luz",
+                      "dataVencimentoInicial": "20/10/2020",
+                      "dataVencimentoFinal": "20/10/2020",
+                      "tipoReceita": 1,
+                      "valor": "19.85",
+                      "parcelasQtd": 1
+                    };
+
+      const fnovo = this.state.financas;
+      fnovo.push(novo);
+      console.log(fnovo);
+      this.setState({financas: fnovo});
+    }
 
     render() {
         return(
@@ -114,7 +132,7 @@ class App extends Component {
 
                 <div className="App-header">
                     <h2>Finanças</h2>
-                    <Button label="+" />
+                    <Button label="+" onClick={this.adicionarFinanca}/>
 
                 </div>
 
