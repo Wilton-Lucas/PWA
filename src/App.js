@@ -16,12 +16,55 @@ class App extends Component {
         super(props);
 
         this.state = {
-            financas: [],
-            mes: 'Janeiro'
+            meses : ['Janeiro',
+            'Fevereiro',
+            'Março',
+            'Abril',
+            'Maio',
+            'Junho',
+            'Julho',
+            'Agosto',
+            'Setembro',
+            'Outubro',
+            'Novembro',
+            'Dezembro',
+            ],
+
+            financas: [
+                    {
+                      "id": "1",
+                      "descricao": "conta de luz",
+                      "dataVencimento": "20/10/2020",
+                      "tipoReceita": 1,
+                      "valor": "19.85",
+                      "parcelasQtd": 1
+                    },
+                    {
+                      "id": "2",
+                      "descricao": "Caiu salário",
+                      "dataVencimentoInicial": "20/10/2020",
+                      "dataVencimentoFinal": "20/10/2020",
+                      "tipoReceita": 2,
+                      "valor": "2000.0",
+                      "parcelasQtd": 1
+                    },
+                    {
+                      "id": "3",
+                      "descricao": "Fatura Nubank",
+                      "dataVencimentoInicial": "20/10/2020",
+                      "dataVencimentoFinal": "20/1/2021",
+                      "tipoReceita": 1,
+                      "valor": "6000.0",
+                      "parcelasQtd": 3
+                    }
+            ],
+            mesSelecionado: 0,
         };
 
         this.itemTemplate = this.itemTemplate.bind(this);
-        this.mudarMes = this.mudarMes.bind(this);
+        this.mudarMesDecremento = this.mudarMesDecremento.bind(this);
+        this.mudarMesIncremento = this.mudarMesIncremento.bind(this);
+        
 
         console.log('finanças antes =' + this.itemTemplate);
 
@@ -34,6 +77,7 @@ class App extends Component {
             this.setState({financas:resposta.data});
 
         });
+        this.setState({mes:0});
 
 
     }
@@ -50,13 +94,22 @@ class App extends Component {
         );
     };
 
-    mudarMes() {
-        this.setState({mes:this.state.mes +1});
-        const response = api.get('');
-        console.log(response.data)
-        this.setState({financas: response.data});
+    mudarMesIncremento() {
+      console.log('mudou');
+        if(this.state.mes + 1 <=11){
+          this.setState({mes:this.state.mes +1});
+        }else{
+          this.setState({mes:0});
+        }
+    };
 
+     mudarMesDecremento() {
 
+        if(this.state.mes - 1 >=0){
+          this.setState({mes:this.state.mes -1});
+        }else{
+          this.setState({mes:11});
+        }
     };
 
 
@@ -72,9 +125,9 @@ class App extends Component {
 
                 <div className="App-month">
                     <ul className="nav">
-                        <li><Button label="<"/></li>
-                        <li><h3> {this.state.mes}  </h3></li>
-                        <li><Button label=">" onClick={this.mudarMes}/></li>
+                        <li><Button label="<" onClick={this.mudarMesDecremento}/></li>
+                        <li><h3> {this.state.meses[this.state.mes]}  </h3></li>
+                        <li><Button label=">" onClick={this.mudarMesIncremento}/></li>
                     </ul>
 
                 </div>
@@ -96,22 +149,7 @@ class App extends Component {
                             <div>R$ 3000.00</div>
                         </div>
                     </div>
-                    {/*<div className="App-footer-row">*/}
-                    {/*    <div className="App-footer-label">*/}
-                    {/*        Despezas*/}
-                    {/*    </div>*/}
-                    {/*    <div className="App-footer-content">*/}
-                    {/*        R$ 3000.00*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
-                    {/*<div className="App-footer-row">*/}
-                    {/*    <div className="App-footer-label">*/}
-                    {/*        Saldo*/}
-                    {/*    </div>*/}
-                    {/*    <div className="App-footer-content">*/}
-                    {/*        R$ 3000.00*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
+                    
                 </div>
 
 
