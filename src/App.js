@@ -91,11 +91,11 @@ class App extends Component {
       
       const novo =  {
                       "id": "15",
-                      "descricao": "conta de luz",
+                      "descricao": "Nova receita",
                       "dataVencimentoInicial": "20/10/2020",
                       "dataVencimentoFinal": "20/10/2020",
-                      "tipoReceita": 1,
-                      "valor": "19.85",
+                      "tipoReceita": 2,
+                      "valor": "100.00",
                       "parcelasQtd": 1
                     };
 

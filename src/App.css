@@ -151,6 +151,22 @@
   
 }
 
+.btn-item{
+  margin-right: 5%;
+  width: 10%;
+  align-items: right;
+  text-align: right; 
+
+}
+.btn-item button{
+ 
+  color: red;
+  border: 2px solid #276650;
+  background-color: #dcebe3;
+ 
+
+}
+
 .nome-item{
   margin-right: 5%;
   width: 30%;
