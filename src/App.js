@@ -54,6 +54,7 @@ class App extends Component {
     atualizarFinancasAPI(){
       api.get('').then((resposta)=>{
 
+          console.log(resposta.data)
             this.setState({financas:resposta.data});
 
       });
@@ -98,6 +99,11 @@ class App extends Component {
                     };
 
       const fnovo = this.state.financas;
+      api.post('', novo).then((respota)=>{
+          console.log(respota);
+      }).catch((resposta)=>{
+          console.log(resposta)
+      })
       fnovo.push(novo);
       console.log(fnovo);
       this.setState({financas: fnovo});
