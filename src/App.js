@@ -32,6 +32,33 @@ class App extends Component {
             ],
 
             financas: [
+                    {
+                      "id": "1",
+                      "descricao": "conta de luz",
+                      "dataVencimentoInicial": "20/10/2020",
+                      "dataVencimentoFinal": "20/10/2020",
+                      "tipoReceita": 1,
+                      "valor": "19.85",
+                      "parcelasQtd": 1
+                    },
+                    {
+                      "id": "2",
+                      "descricao": "Caiu salário",
+                      "dataVencimentoInicial": "20/10/2020",
+                      "dataVencimentoFinal": "20/10/2020",
+                      "tipoReceita": 2,
+                      "valor": "2000.0",
+                      "parcelasQtd": 1
+                    },
+                    {
+                      "id": "3",
+                      "descricao": "Fatura Nubank",
+                      "dataVencimentoInicial": "20/10/2020",
+                      "dataVencimentoFinal": "20/1/2021",
+                      "tipoReceita": 1,
+                      "valor": "6000.0",
+                      "parcelasQtd": 3
+                    }
             ],
             mesSelecionado: 0,
         };
@@ -57,7 +84,7 @@ class App extends Component {
 
     }
 
-    itemTemplate(data) {
+    itemTemplate(data) {        
         return (
             <Template data={data} />
         );
@@ -73,6 +100,7 @@ class App extends Component {
     };
 
      mudarMesDecremento() {
+
         if(this.state.mes - 1 >=0){
           this.setState({mes:this.state.mes -1});
         }else{
@@ -81,7 +109,7 @@ class App extends Component {
     };
 
     adicionarFinanca(){
-
+      
       const novo =  {
                       "id": "15",
                       "descricao": "conta de luz",
@@ -118,7 +146,7 @@ class App extends Component {
                 </div>
 
                 <div className="App-content">
-                    <DataView value={this.state.financas} itemTemplate={this.itemTemplate} rows={5} inline scrollHeight="500px" />
+                    <DataView  value={this.state.financas} itemTemplate={this.itemTemplate} rows={5} inline scrollHeight="500px" />
                 </div>
 
                 <div className="App-footer">
