@@ -31,35 +31,7 @@ class App extends Component {
             'Dezembro',
             ],
 
-            financas: [
-                    {
-                      "id": "1",
-                      "descricao": "conta de luz",
-                      "dataVencimentoInicial": "20/10/2020",
-                      "dataVencimentoFinal": "20/10/2020",
-                      "tipoReceita": 1,
-                      "valor": "19.85",
-                      "parcelasQtd": 1
-                    },
-                    {
-                      "id": "2",
-                      "descricao": "Caiu salário",
-                      "dataVencimentoInicial": "20/10/2020",
-                      "dataVencimentoFinal": "20/10/2020",
-                      "tipoReceita": 2,
-                      "valor": "2000.0",
-                      "parcelasQtd": 1
-                    },
-                    {
-                      "id": "3",
-                      "descricao": "Fatura Nubank",
-                      "dataVencimentoInicial": "20/10/2020",
-                      "dataVencimentoFinal": "20/1/2021",
-                      "tipoReceita": 1,
-                      "valor": "6000.0",
-                      "parcelasQtd": 3
-                    }
-            ],
+            financas: [],
             mesSelecionado: 0,
         };
 
@@ -67,6 +39,8 @@ class App extends Component {
         this.mudarMesDecremento = this.mudarMesDecremento.bind(this);
         this.mudarMesIncremento = this.mudarMesIncremento.bind(this);
         this.adicionarFinanca = this.adicionarFinanca.bind(this);
+        this.atualizarFinancasAPI = this.atualizarFinancasAPI.bind(this);
+
 
         console.log('finanças antes =' + this.itemTemplate);
 
@@ -74,14 +48,17 @@ class App extends Component {
 
 
     componentDidMount(){
-        api.get('').then((resposta)=>{
+        this.atualizarFinancasAPI();
+    }
+
+    atualizarFinancasAPI(){
+      api.get('').then((resposta)=>{
 
             this.setState({financas:resposta.data});
 
-        });
+      });
         this.setState({mes:0});
-
-
+      
     }
 
     itemTemplate(data) {        
